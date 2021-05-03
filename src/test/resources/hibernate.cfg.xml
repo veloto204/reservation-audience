@@ -1,0 +1,36 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- JDBC Database connection settings -->
+        <property name="connection.driver_class">org.h2.Driver</property>
+        <property name="hibernate.connection.url">
+            jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=MYSQL;IGNORECASE=TRUE;INIT=runscript from
+            'src/test/resources/create.sql'\;
+        </property>
+        <property name="connection.username">sa</property>
+        <property name="connection.password">""</property>
+        <!-- JDBC connection pool settings ... using built-in test pool -->
+        <property name="connection.pool_size">100</property>
+        <!-- Select our SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.H2Dialect</property>
+        <!-- Echo the SQL to stdout -->
+        <property name="show_sql">true</property>
+        <property name="hibernate.current_session_context_class">thread</property>
+        <property name="hibernate.hbm2ddl.auto">create</property>
+        <mapping class="com.jazzteam.borisov.models.person.Teacher"></mapping>
+        <mapping class="com.jazzteam.borisov.models.build.Department"></mapping>
+        <mapping class="com.jazzteam.borisov.models.person.HeadOfDepartment"></mapping>
+        <mapping class="com.jazzteam.borisov.models.person.Dean"></mapping>
+        <mapping class="com.jazzteam.borisov.models.build.Faculty"></mapping>
+        <mapping class="com.jazzteam.borisov.models.action.Subject"></mapping>
+        <mapping class="com.jazzteam.borisov.models.other.TeacherHasSubject"></mapping>
+        <mapping class="com.jazzteam.borisov.models.person.Group"></mapping>
+        <mapping class="com.jazzteam.borisov.models.build.Audience"></mapping>
+        <mapping class="com.jazzteam.borisov.models.build.ParameterAudience"></mapping>
+        <mapping class="com.jazzteam.borisov.models.booking.Lesson"></mapping>
+        <mapping class="com.jazzteam.borisov.models.booking.Booking"></mapping>
+
+    </session-factory>
+</hibernate-configuration>
